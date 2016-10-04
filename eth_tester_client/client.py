@@ -208,9 +208,9 @@ class EthTesterClient(object):
 
         try:
             if gas is not None:
-                t.gas_limit = gas
+                t.gas_limit = normalize_number(gas)
             if gas_price is not None:
-                t.gas_price = gas_price
+                t.gas_price = normalize_number(gas_price)
             output = self.evm.send(sender=sender, to=to, value=value, evmdata=data)
         finally:
             t.gas_limit = t.GAS_LIMIT
