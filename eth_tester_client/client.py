@@ -204,6 +204,7 @@ class EthTesterClient(object):
             data = b''
 
         data = decode_hex(data)
+        value = normalize_number(value)
 
         try:
             if gas is not None:
